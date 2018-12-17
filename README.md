@@ -3,7 +3,7 @@ Susumu Asaga
 
 ##  SQL
 
-1. Qual o nome, email e telefone das 5 pessoas que mais geraram receita?
+1. **Qual o nome, email e telefone das 5 pessoas que mais geraram receita?**
 
 A consulta SQL que resolve a pergunta é a seguinte:
 ```SQL
@@ -54,7 +54,7 @@ Na sub-consulta mais interna é feito um `join` entre eventos de `identify` e a 
 
 Na sub-consulta mais externa agrupamos as linhas por pessoa e ordenamos por `revenue` descendente.
 
-2. De quantos em quantos dias, em média, as pessoas compram? Use a mediana como média.
+2. **De quantos em quantos dias, em média, as pessoas compram? Use a mediana como média.**
 
 A consulta SQL que resolve a pergunta é a seguinte:
 ```SQL
