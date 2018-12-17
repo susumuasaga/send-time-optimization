@@ -39,7 +39,7 @@ SELECT id, name, email, phone, revenue FROM(
 GROUP BY id, name, email, phone, revenue
 ORDER BY revenue DESC
 ```
-e a resposta da pergunta é a seguinte:
+e a resposta à pergunta é a seguinte:
 
 Row	| id | name	| email	| phone	| revenue
 --- | --- | --- | --- | --- | ---
@@ -60,7 +60,7 @@ Na sub-consulta mais externa agrupamos as linhas por pessoa e ordenamos por `rev
 A consulta SQL que resolve a pergunta é a seguinte:
 ```SQL
 SELECT PERCENTILE_CONT(
-  TIMESTAMP_DIFF(timestamp, last_timestamp, SECOND)/86400,
+  TIMESTAMP_DIFF(timestamp, last_timestamp, SECOND) / 86400,
   0.5
 ) OVER() median_days
 FROM (
