@@ -40,6 +40,7 @@ GROUP BY id, name, email, phone, revenue
 ORDER BY revenue DESC
 ```
 e a resposta da pergunta é a seguinte:
+
 Row	| id | name	| email	| phone	| revenue
 --- | --- | --- | --- | --- | ---
 1 | f56861d3-a2b5-4ab0-b0ef-6ce2005f84dd | Heloísa Ordonhes | joshua_prosacco@gmail.com | (51) 91972-9639 | 4,850.27
