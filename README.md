@@ -182,9 +182,10 @@ Como no domingo, a curva e mais irregular com m5 clusters, concentrados às: 11:
 
 #### Top 10 Clusters
 
-Para comparar clusters de dias diferentes, devemos usar a densidade numérica, que é o produto da densidade no gráfico KDE pelo número de amostras do dia. Os 10 clusters com maiores densidades númericas serão aqueles que serão utilizados para envio dos e-mails conforme o histórico de cada destinatário. A hora de envio será aproximadamente 30 minutos antes da hora de pico. São os seguintes por ordem descendente de densidade numérica:
+Para comparar clusters de dias diferentes, devemos usar a densidade de frequência, que é o produto da densidade pelo número de amostras do dia. Os 10 clusters com maiores densidades númericas serão aqueles que serão utilizados para envio dos e-mails conforme o histórico de cada destinatário. A hora de envio será aproximadamente 30 minutos antes da hora de pico. São os seguintes por ordem descendente de densidade de frequência:
 
-Rank |Dia  | Hora de pico | Hora de envio | Hora local
+Rank |Dia  | Hora   | Hora     | Hora
+     |     | de pico| de envio | local
 ---: | --- | ---:     | ---:     | ---:
 1  | Terça-feira   | 12:27 | 12:00 |  9:00
 2  | Quinta-feira  | 13:50 | 13:15 | 10:15
