@@ -182,7 +182,7 @@ Como no domingo, a curva e mais irregular com 5 clusters, concentrados às: 11:5
 
 #### Top 10 Clusters
 
-Para comparar clusters de dias diferentes, devemos usar a densidade de frequência, que é o produto da densidade pelo número de amostras do dia. Os 10 clusters com maiores densidades númericas serão aqueles que serão utilizados para envio dos e-mails conforme o histórico de cada destinatário. A hora de envio será aproximadamente 30 minutos antes da hora de pico. São os seguintes por ordem descendente de densidade de frequência:
+Para comparar clusters de dias diferentes, devemos usar a densidade de frequência, que é o produto da densidade pelo número de amostras do dia. Os 10 clusters com maiores densidades de frequência serão aqueles que serão utilizados para envio dos e-mails conforme o histórico de cada destinatário. A hora de envio será aproximadamente 30 minutos antes da hora de pico. São os seguintes por ordem descendente de densidade de frequência:
 
 Rank |Dia  | Hora de pico  | Hora de envio | Hora local 
 ---: | --- | ---:     | ---:     | ---:
