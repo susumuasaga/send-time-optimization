@@ -17,8 +17,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="263">
-                <caret line="190" column="42" lean-forward="true" selection-start-line="190" selection-start-column="42" selection-end-line="190" selection-end-column="42" />
+              <first_editor relative-caret-position="158">
+                <caret line="184" column="198" selection-start-line="184" selection-start-column="198" selection-end-line="184" selection-end-column="198" />
               </first_editor>
               <second_editor />
             </state>
@@ -182,7 +182,7 @@
     <frame x="722" y="0" width="718" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25681493" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25681493" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -242,8 +242,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="263">
-            <caret line="190" column="42" lean-forward="true" selection-start-line="190" selection-start-column="42" selection-end-line="190" selection-end-column="42" />
+          <first_editor relative-caret-position="158">
+            <caret line="184" column="198" selection-start-line="184" selection-start-column="198" selection-end-line="184" selection-end-column="198" />
           </first_editor>
           <second_editor />
         </state>
