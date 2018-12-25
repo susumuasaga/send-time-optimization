@@ -97,8 +97,104 @@ As estimativas de densidade estão intimamente relacionadas com histogramas, mas
 
 Esperamos um aumento no open rate enviando a mensagem um ceto tempo antes, digamos 30 minutos, de um máximo local da densidade estimada pelo KDE.
 
-Para facilitar a análise elaboraremos o KDE para cada dia da semana separadamente. Para assegurar a acurácia no início e fim do dia, incluímos os dados de 1:15 antes da zero hora, no dia anterior, e de 1:15 depois da meia-noite, no dia seguinte.
+Para facilitar a análise elaboraremos o KDE para cada dia da semana separadamente. Para assegurar a acurácia no início e fim do dia, incluímos os dados de uma margem de segurança de 1:15 antes da zero hora e depois das 24 horas.
 
 Embora existam várias versões de estimativa de densidade de kernel implementadas em Python (principalmente nos pacotes SciPy e StatsModels), prefiro usar a versão do Scikit-Learn por causa de sua eficiência e flexibilidade. Ele é implementado no estimador `sklearn.neighbors.KernelDensity`, que manipula o KDE em várias dimensões com um de seis kernels e uma dúzia de métricas de distância. Como o KDE pode ser razoavelmente computacionalmente intensivo, o estimador Scikit-Learn usa um algoritmo baseado em árvore sob o capô e pode reduzir tempo de computação em troca da acurácia usando os parâmetros `atol` (tolerância absoluta) e `rtol` (tolerância relativa). O procedimento usado está detalhado [neste texto](data-scientist-dito.md).
 
+ Como os horários estão na fuso GMT, para obter a hora local, devemos subtrair 3 horas, por exemplo 12:00 corresponde às 09:00 do horário local. Trabalharemos no fuso GMT, sem conversão para o fuso horário local.
 
+Percebemos que o horário de verão brasileiro a partir de 04/11/2018, não alterou significativamente o padrão de acesso, assim não fizemos nenhum ajuste a fim de considerar o horário de verão.
+
+Nas próximas seções, analisaremos os resultados do KDE para cada dia da semana.
+
+#### Domingo
+
+Para domingo, tivemos 2.197 `open`s, o menor número da semana.
+
+O KDE de domingo é o do seguinte gráfico.
+
+![KDE de Domingo](pde_sunday.png)
+
+Por não ser dia útil, há menos uniformidade de uso e 7 clusters espalhados durante o dia, o maior número de clusters da semana, concentrados às: 03:19, 12:00, 14:16, 16:22, 18:26, 20:31 e 22:46, com maior densidade às 14:16.
+
+#### Segunda-feira
+
+Para segunda-feira, tivemos 13.615 `open`s, mais de 6 vezes o número de domingo.
+
+O KDE de segunda-feira é o do seguinte gráfico.
+
+![KDE de Segunda](pde_monday.png)
+
+Aqui tivemos maior suavidade da curva comparado ao domingo, com 5 clusters concentrados às: 01:21, 12:41, 14:29, 19:07, 23:20, com maior densidade às 19:07.
+
+#### Terça-feira
+
+Para terça-feira, tivemos 27.213 `open`s, mais de 2 vezes o número de segunda-feira. É o dia da semana em que tivemos maior número de `open`s.
+
+O KDE de terça-feira é o do seguinte gráfico.
+
+![KDE de Terça](pde_tuesday.png)
+
+Aqui tivemos uma curva mais suave do que a de segunda-feira, com 4 clusters concentrados às: 10:35 (7:35 local), 12:27 (09:27), 18:05 (15:05), 21:55 (18:55), com maior densidade às 12:27 (09:27).
+
+Portanto, baseada no KDE, na falta de maiores informações sobre o destinatário, a melhor hora para o envio de e-mails é na terça-feira por volta das 09:00 local.
+
+#### Quarta-feira
+
+Para quarta-feira, tivemos 15.780 `open`s. É o 3º dia da semana com mais `open`s.
+
+O KDE de quarta-feira é o do seguinte gráfico.
+
+![KDE de Quarta](pde_wednesday.png)
+
+Aqui também tivemos uma curva suave, com somente 2 clusters, concentrados às: 14:26 (11:25 local), 18:40 (15:40). O segundo cluster tem uma densidade pouco maior do que o primeiro.
+
+#### Quinta-feira
+
+Para quinta-feira, tivemos 18.924 `open`s, o 2º dia da semana com mais `open`s.
+
+O KDE de quinta-feira é o do seguinte gráfico.
+
+![KDE de Quinta](pde_thursday.png)
+
+Aqui também tivemos uma curva suave, com 3 clusters principais, concentrados às: 10:58 (07:58 local), 13:26 (10:26), 19:25 (16:25). O segundo cluster tem uma densidade maior.
+
+#### Sexta-feira
+
+Para sexta-feira, tivemos 11.419 `open`s.
+
+O KDE de sexta-feira é o do seguinte gráfico.
+
+![KDE de Sexta](pde_friday.png)
+
+Aqui também tivemos uma curva suave, com 3 clusters, concentrados às: 11:22 (08:22 local), 14:29 (11:29), 18:25 (15:25). O último cluster tem uma densidade maior.
+
+
+#### Sábado
+
+Para sábado, tivemos 3.544 `open`s.
+
+O KDE de sábado é o do seguinte gráfico.
+
+![KDE de Sábado](pde_saturday.png)
+
+Como no domingo, a curva e mais irregular com m5 clusters, concentrados às: 11:53, 13:46, 19.55, 21:08, 21:20, 22:02. O segundo cluster tem uma densidade maior.
+
+#### Top 10 Clusters
+
+Para comparar clusters de dias diferentes, devemos usar a densidade numérica, que é o produto da densidade no gráfico KDE pelo número de amostras do dia. Os 10 clusters com maiores densidades númericas serão aqueles que serão utilizados para envio dos e-mails conforme o histórico de cada destinatário. A hora de envio será aproximadamente 30 minutos antes da hora de pico. São os seguintes por ordem descendente de densidade numérica:
+
+Rank |Dia  | Hora     | Hora     | Hora
+     |     | de pico  | de envio | local
+---: | --- | ---:     | ---:     | ---:
+
+1  | Terça-feira   | 12:27 | 12:00 |  9:00
+2  | Quinta-feira  | 13:50 | 13:15 | 10:15
+3  | Segunda-feira | 19:07 | 18:30 | 15:30
+4  | Terça-feira   | 10:35 | 10:00 |  7:00
+5  | Quinta-feira  | 19:13 | 18:45 | 15:45
+6  | Terça-feira   | 18:05 | 17:30 | 14:30
+7  | Quinta-feira  | 10:58 | 10:30 |  7:30
+8  | Terça-feira   | 21:55 | 21:30 | 18:30
+9  | Quarta-feira  | 18:20 | 17:45 | 14:45
+10 | Quarta-feira  | 14:25 | 14:00 | 11:00
