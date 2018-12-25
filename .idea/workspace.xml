@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5be4a17f-e018-4f3c-b1b4-568a2292afb8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.~lock.sto_challenge.ods#" beforeDir="false" afterPath="$PROJECT_DIR$/.~lock.sto_challenge.ods#" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sto_challenge.ods" beforeDir="false" afterPath="$PROJECT_DIR$/sto_challenge.ods" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +17,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="353">
-                <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
+              <first_editor relative-caret-position="834">
+                <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
               </first_editor>
               <second_editor />
             </state>
@@ -244,8 +242,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="353">
-            <caret line="200" lean-forward="true" selection-start-line="200" selection-end-line="200" />
+          <first_editor relative-caret-position="834">
+            <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
           </first_editor>
           <second_editor />
         </state>

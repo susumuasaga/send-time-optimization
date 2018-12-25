@@ -125,7 +125,7 @@ O KDE de segunda-feira é o do seguinte gráfico.
 
 ![KDE de Segunda](pde_monday.png)
 
-Aqui tivemos maior suavidade da curva comparado ao domingo, com 5 clusters concentrados às: 01:21, 12:41, 14:29, 19:07, 23:20, com maior densidade às 19:07.
+Aqui tivemos maior suavidade da curva comparado ao domingo, com 4 clusters concentrados às 12:41 (09:41 local), 14:29 (11:29), 19:07 (16:07), 23:20 (20:20), com maior densidade às 19:07.
 
 #### Terça-feira
 
