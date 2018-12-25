@@ -51,7 +51,7 @@ Row	| id | name	| email	| phone	| revenue
 
 A primeira sub-consulta `top5` é a consulta principal onde encontramos os `id`s das 5 pessoas que mais geraram receita.
 
-Na sub-consulta mais interna é feito um `join` entre eventos de `identify` e a sub-consulta `top5` e usamos a função analítica `FIRST_VALUE` para obter a informação mais atualizada de `nome`, `email` e `phone` da pessoa.
+Na sub-consulta mais interna é feito um `join` entre eventos de `identify` e a sub-consulta `top5` e usamos a função analítica `FIRST_VALUE` para obter a informação mais atualizada de `name`, `email` e `phone` da pessoa.
 
 Na sub-consulta mais externa agrupamos as linhas por pessoa e ordenamos por `revenue` descendente.
 
@@ -75,8 +75,16 @@ FROM (
 )
 LIMIT 1
 ```
-A resposta da consulta é a cada 0.221 dias.
+A resposta da consulta é que as pessoas compram em média a cada 0.221 dias.
 
 A sub-consulta recupera para cada compra o `id` do comprador, o `timestamp`, e o `timestamp` da sua compra anterior ou `NULL` se for sua primeira compra, para isso usa a função analítica `LAG`.
 
 A consulta principal calcula o intervalo em dias entre duas compras sucessivas usando a função `TIMESTAMP_DIFF` e a mediana de todas as linhas por meio da função analítica `PERCENTILE_CONT`.
+
+## Send Time Optimization
+
+Todos são diferentes e todos têm horários diferentes, mas podem se agrupar ao redor de poucas horas específicas diferentes do dia, especialmente se estăo no mesmo fuso horário, pois a maioria trabalha de dia e dorme de noite. Então a primeira coisa que vamos fazer é processar os dados e descobrir quais são esses grupos de horas e depois encontrar qual é o grupo preferencial de cada usuário para enviar e-mail, respeitando o direito daqueles que não desejam receber as nossas mensagens. Para isso a técnica de ciência de dados que usaremos é a aprendizagem não supervisionada de análise de cluster.
+
+Além do ciclo diário existe também o ciclo semanal, assim os hábitos dos usuários no fim de semana devem ser diferentes dos hábitos no meio da semana ou da segunda-feira, assim  devemos considerar não só a hora onde os eventos de abertura ocorrem, mas também em que dia da semana aconteceu.
+
+### Análise de cluster
