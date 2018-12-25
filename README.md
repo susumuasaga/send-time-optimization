@@ -88,3 +88,13 @@ Todos são diferentes e todos têm horários diferentes, mas podem se agrupar ao
 Além do ciclo diário existe também o ciclo semanal, assim os hábitos dos usuários no fim de semana devem ser diferentes dos hábitos no meio da semana ou da segunda-feira, assim  devemos considerar não só a hora onde os eventos de abertura ocorrem, mas também em que dia da semana aconteceu.
 
 ### Análise de cluster
+
+Para fazer a análise de cluster, consideraremos apenas a hora e o dia da semana dos eventos `open` e  abstraíremos os demais eventos, bem como o `id`, `email_id`, o dia, mês, e ano. Quando dois eventos `open` ocorrerem com intervalo inferior a 1 segundo, consideramos como se tivesse ocorrido apenas um.
+
+Assim temos apenas 1 dimensăo a considerar: quando o `open` ocorreu durante a semana. Podemos analisar os dados usando a técnica de Kernel Density Estimation (KDE).
+
+As estimativas de densidade estão intimamente relacionadas com histogramas, mas são dotadas com propriedades como suavidade e continuidade usando um kernel e largura de banda adequadas. Como kernel usamos a função de Epanechnikov e para largura da banda adotamos o valor de 1 hora, que foi escolhida varrendo-se uma série de 25 valores por década e escolhendo o menor valor possível que visualmente fosse suave, sem exagerar e perder características marcantes da distribuição.
+
+Esperamos um aumento no open rate enviando a mensagem um ceto tempo antes, digamos 30 minutos, de um máximo local da densidade estimada pelo KDE.
+
+Para facilitar a análise elaboraremos o KDE para cada dia da semana separadamente. Para assegurar a acurácia no início e fim do dia, incluímos os dados de 1:15 antes da zero hora, no dia anterior, e de 1:15 depois da meia-noite, no dia seguinte.
