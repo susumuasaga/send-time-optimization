@@ -93,8 +93,12 @@ Para fazer a análise de cluster, consideraremos apenas a hora e o dia da semana
 
 Assim temos apenas 1 dimensăo a considerar: quando o `open` ocorreu durante a semana. Podemos analisar os dados usando a técnica de Kernel Density Estimation (KDE).
 
-As estimativas de densidade estão intimamente relacionadas com histogramas, mas são dotadas com propriedades como suavidade e continuidade usando um kernel e largura de banda adequadas. Como kernel usamos a função de Epanechnikov e para largura da banda adotamos o valor de 1 hora, que foi escolhida varrendo-se uma série de 25 valores por década e escolhendo o menor valor possível que visualmente fosse suave, sem exagerar e perder características marcantes da distribuição.
+As estimativas de densidade estão intimamente relacionadas com histogramas, mas são dotadas com propriedades como suavidade e continuidade usando um kernel e largura de banda adequadas. Adotamos o kernel de Epanechnikov e o valor de 1 hora para largura de banda. A largura de banda foi escolhida varrendo-se uma série de 25 valores por década e escolhendo o menor valor possível que visualmente fosse suave, sem exagerar e perder características marcantes da distribuição.
 
 Esperamos um aumento no open rate enviando a mensagem um ceto tempo antes, digamos 30 minutos, de um máximo local da densidade estimada pelo KDE.
 
 Para facilitar a análise elaboraremos o KDE para cada dia da semana separadamente. Para assegurar a acurácia no início e fim do dia, incluímos os dados de 1:15 antes da zero hora, no dia anterior, e de 1:15 depois da meia-noite, no dia seguinte.
+
+Embora existam várias versões de estimativa de densidade de kernel implementadas em Python (principalmente nos pacotes SciPy e StatsModels), prefiro usar a versão do Scikit-Learn por causa de sua eficiência e flexibilidade. Ele é implementado no estimador `sklearn.neighbors.KernelDensity`, que manipula o KDE em várias dimensões com um de seis kernels e uma dúzia de métricas de distância. Como o KDE pode ser razoavelmente computacionalmente intensivo, o estimador Scikit-Learn usa um algoritmo baseado em árvore sob o capô e pode reduzir tempo de computação em troca da acurácia usando os parâmetros `atol` (tolerância absoluta) e `rtol` (tolerância relativa). O procedimento usado está detalhado [neste texto](data-scientist-dito.md).
+
+
