@@ -186,7 +186,6 @@ Para comparar clusters de dias diferentes, devemos usar a densidade numérica, q
 
 Rank |Dia  | Hora de pico | Hora de envio | Hora local
 ---: | --- | ---:     | ---:     | ---:
-
 1  | Terça-feira   | 12:27 | 12:00 |  9:00
 2  | Quinta-feira  | 13:50 | 13:15 | 10:15
 3  | Segunda-feira | 19:07 | 18:30 | 15:30
