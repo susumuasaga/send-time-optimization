@@ -4,8 +4,8 @@
     <list default="true" id="5be4a17f-e018-4f3c-b1b4-568a2292afb8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-scientist-dito.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/kde.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-scientist-dito.md" beforeDir="false" afterPath="$PROJECT_DIR$/kde.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-scientist-dito.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-scientist-dito.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sto_challenge.ods" beforeDir="false" afterPath="$PROJECT_DIR$/sto_challenge.ods" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -21,8 +21,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="259">
-                <caret line="197" column="41" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
+              <first_editor relative-caret-position="108">
+                <caret line="180" column="87" lean-forward="true" selection-start-line="180" selection-start-column="87" selection-end-line="180" selection-end-column="87" />
               </first_editor>
               <second_editor />
             </state>
@@ -243,8 +243,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="259">
-            <caret line="197" column="41" selection-start-line="197" selection-start-column="41" selection-end-line="197" selection-end-column="41" />
+          <first_editor relative-caret-position="108">
+            <caret line="180" column="87" lean-forward="true" selection-start-line="180" selection-start-column="87" selection-end-line="180" selection-end-column="87" />
           </first_editor>
           <second_editor />
         </state>

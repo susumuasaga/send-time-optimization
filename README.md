@@ -178,7 +178,7 @@ O KDE de sábado é o do seguinte gráfico.
 
 ![KDE de Sábado](pde_saturday.png)
 
-Como no domingo, a curva é mais irregular com 5 clusters, concentrados às: 11:53, 13:46, 19.55, 21:08, 21:20, 22:02. O segundo cluster tem uma densidade maior.
+Como no domingo, a curva é mais irregular, com 5 clusters, concentrados às: 11:53, 13:46, 19.55, 21:08, 21:20, 22:02. O segundo cluster tem uma densidade maior.
 
 #### Top 10 Clusters
 
