@@ -99,7 +99,7 @@ Esperamos um aumento no open rate enviando a mensagem um ceto tempo antes, digam
 
 Para facilitar a análise elaboraremos o KDE para cada dia da semana separadamente. Para assegurar a acurácia no início e fim do dia, incluímos os dados de uma margem de segurança de 1:15 antes da zero hora e depois das 24 horas.
 
-Embora existam várias versões de estimativa de densidade de kernel implementadas em Python (principalmente nos pacotes SciPy e StatsModels), prefiro usar a versão do Scikit-Learn por causa de sua eficiência e flexibilidade. Ele é implementado no estimador `sklearn.neighbors.KernelDensity`, que manipula o KDE em várias dimensões com um de seis kernels e uma dúzia de métricas de distância. Como o KDE pode ser razoavelmente computacionalmente intensivo, o estimador Scikit-Learn usa um algoritmo baseado em árvore sob o capô e pode reduzir tempo de computação em troca da acurácia usando os parâmetros `atol` (tolerância absoluta) e `rtol` (tolerância relativa). O procedimento usado está detalhado [neste texto](data-scientist-dito.md).
+Embora existam várias versões de estimativa de densidade de kernel implementadas em Python (principalmente nos pacotes SciPy e StatsModels), prefiro usar a versão do Scikit-Learn por causa de sua eficiência e flexibilidade. Ele é implementado no estimador `sklearn.neighbors.KernelDensity`, que manipula o KDE em várias dimensões com um de seis kernels e uma dúzia de métricas de distância. Como o KDE pode ser razoavelmente computacionalmente intensivo, o estimador Scikit-Learn usa um algoritmo baseado em árvore sob o capô e pode reduzir tempo de computação em troca da acurácia usando os parâmetros `atol` (tolerância absoluta) e `rtol` (tolerância relativa). O procedimento usado está detalhado [neste texto](kde.md).
 
  Como os horários estão na fuso GMT, para obter a hora local, devemos subtrair 3 horas, por exemplo 12:00 corresponde às 09:00 do horário local. Trabalharemos no fuso GMT, sem conversão para o fuso horário local.
 
@@ -178,7 +178,7 @@ O KDE de sábado é o do seguinte gráfico.
 
 ![KDE de Sábado](pde_saturday.png)
 
-Como no domingo, a curva e mais irregular com 5 clusters, concentrados às: 11:53, 13:46, 19.55, 21:08, 21:20, 22:02. O segundo cluster tem uma densidade maior.
+Como no domingo, a curva é mais irregular com 5 clusters, concentrados às: 11:53, 13:46, 19.55, 21:08, 21:20, 22:02. O segundo cluster tem uma densidade maior.
 
 #### Top 10 Clusters
 
@@ -194,5 +194,5 @@ Rank |Dia  | Hora de pico  | Hora de envio | Hora local
 6  | Terça-feira   | 18:05 | 17:30 | 14:30
 7  | Quinta-feira  | 10:58 | 10:30 |  7:30
 8  | Terça-feira   | 21:55 | 21:30 | 18:30
-9  | Quarta-feira  | 18:20 | 17:45 | 14:45
+9  | Quarta-feira  | 18:40 | 18:15 | 15:15
 10 | Quarta-feira  | 14:25 | 14:00 | 11:00
