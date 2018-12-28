@@ -183,3 +183,15 @@ Rank |Dia  | Hora de pico  | Hora de envio | Hora local
 12 | Terça-feira   | 15:55 | 15:30 | 12:30
 13 | Segunda-feira | 23:18 | 22:45 | 19:45
 14 | Segunda-feira | 14:29 | 14:00 | 11:00
+
+Serão considerados como pertencentes ao cluster as `action`s de `open` que ocorrerem até 2 horas após a hora de envio do e-mail. 
+
+### Classificação dos recebedores
+
+Para cada recebedor será atribuido um dia e uma hora de envio pertencente à tabela acima. O cluster escolhido será aquele quando houver maior número de `action`s `open` pelo recebedor. Em caso de empate, será escolhido o cluster que estiver mais perto do topo da tabela. O dia de envio será indicado por um inteiro de 1 a 7, sendo 1 para o domingo e 7 para o sábado. A hora de envio será indicada por uma `string` no formato HH:MM com HH entre 00 e 23, para o fuso horário de Greenwich. 
+
+Se houver alguma `action` `unsubscribe` ou `spamreport`, isso será sinalizado por -1 no campo `send day` na tabela de recebedores.
+
+Caso nenhuma `action` `open` do recebedor puder ser encaixada em um dos clusters, esse fato será sinalizado com 0 no campo `send day` na tabela de recebedores. Nesse caso podemos fazer testes de enviar e-mails para o recebedor nos dias e horas de cada um dos clusters e reavaliar os resultados.
+
+A classificação dos recebedores é feita pela manipulação de Pandas `DataFrame`s e está descrito [neste texto](classify_recipients.md). Os resultados estão gravados no arquivo [recipients.csv](recipients.csv).
