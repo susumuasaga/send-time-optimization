@@ -1,4 +1,4 @@
-# Data Scientist: Dito
+# Desafio: Data Scientist
 Susumu Asaga
 
 ##  SQL
